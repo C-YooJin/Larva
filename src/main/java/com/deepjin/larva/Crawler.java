@@ -1,6 +1,8 @@
 package com.deepjin.larva;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
@@ -49,6 +51,9 @@ public class Crawler {
         try {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
             driver.get(base_url);
+//            driver.findElement(By.xpath("//*[@id=\"themecast\"]/div[2]/div[1]/div/ul/li[1]/a[2]/strong"));
+            WebElement test = driver.findElement(By.xpath("//*[@id=\"NM_FAVORITE\"]/div[1]/ul[1]/li[5]/a"));
+            test.click();
             System.out.println(driver.getPageSource());
 
         } catch (Exception e) {
