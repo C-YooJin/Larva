@@ -26,7 +26,6 @@ public class Crawler {
     public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
     public static final String WEB_DRIVER_PATH = "/Users/user/Documents/etc/chromedriver";
 
-
     //크롤링 할 URL
     private String base_url;
 
@@ -54,7 +53,9 @@ public class Crawler {
 //            driver.findElement(By.xpath("//*[@id=\"themecast\"]/div[2]/div[1]/div/ul/li[1]/a[2]/strong"));
             WebElement test = driver.findElement(By.xpath("//*[@id=\"NM_FAVORITE\"]/div[1]/ul[1]/li[5]/a"));
             test.click();
-            System.out.println(driver.getPageSource());
+            WebElement afterClick = driver.findElement(By.xpath("//*[@id=\"gnb_menu_layer\"]/li[2]/a/em/span"));
+            System.out.println("Result After Click");
+            System.out.println(afterClick.getText());
 
         } catch (Exception e) {
 
@@ -66,5 +67,4 @@ public class Crawler {
         }
 
     }
-
 }
