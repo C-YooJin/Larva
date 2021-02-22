@@ -8,10 +8,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Crawler {
+public class SeleniumExam {
     public static void main(String[] args) {
 
-        Crawler crawler = new Crawler();
+        SeleniumExam crawler = new SeleniumExam();
         crawler.crawl();
 
     }
@@ -20,7 +20,7 @@ public class Crawler {
     private WebDriver driver;
 
     // Logger
-    private static final Logger logger = LoggerFactory.getLogger(Crawler.class);
+    private static final Logger logger = LoggerFactory.getLogger(SeleniumExam.class);
 
     //Properties
     public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
@@ -29,7 +29,7 @@ public class Crawler {
     //크롤링 할 URL
     private String base_url;
 
-    public Crawler() {
+    public SeleniumExam() {
         super();
 
         //System Property SetUp
