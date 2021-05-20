@@ -8,10 +8,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SeleniumExam {
+public class BooGongBae {
     public static void main(String[] args) {
 
-        SeleniumExam crawler = new SeleniumExam();
+        BooGongBae crawler = new BooGongBae();
         crawler.crawl();
 
     }
@@ -20,17 +20,17 @@ public class SeleniumExam {
     private WebDriver driver;
 
     // Logger
-    private static final Logger logger = LoggerFactory.getLogger(SeleniumExam.class);
+    private static final Logger logger = LoggerFactory.getLogger(BooGongBae.class);
 
     //Properties
     public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
-//    public static final String WEB_DRIVER_PATH = "/Users/user/Documents/etc/chromedriver";
+    //    public static final String WEB_DRIVER_PATH = "/Users/user/Documents/etc/chromedriver";
     public static final String WEB_DRIVER_PATH = "/usr/local/bin/chromedriver";
 
     //크롤링 할 URL
     private String base_url;
 
-    public SeleniumExam() {
+    public BooGongBae() {
         super();
 
         //System Property SetUp
@@ -51,21 +51,27 @@ public class SeleniumExam {
         try {
             //get page (= 브라우저에서 url을 주소창에 넣은 후 request 한 것과 같다)
             driver.get(base_url);
-//            driver.findElement(By.xpath("//*[@id=\"themecast\"]/div[2]/div[1]/div/ul/li[1]/a[2]/strong"));
-            WebElement test = driver.findElement(By.xpath("//*[@id=\"NM_FAVORITE\"]/div[1]/ul[1]/li[5]/a"));
-            test.click();
-            WebElement afterClick = driver.findElement(By.xpath("//*[@id=\"gnb_menu_layer\"]/li[2]/a/em/span"));
-            System.out.println("Result After Click");
-            System.out.println(afterClick.getText());
+
+            WebElement test = driver.findElement(By.xpath("//*[@id=\"themecast\"]/div[1]/div[1]"));
+            System.out.println(test.getText());
+
+            WebElement intoLogin = driver.findElement(By.xpath("//*[@id=\"account\"]/a"));
+            intoLogin.click();
+            driver.findElement(By.xpath("//*[@id=\"id\"]")).sendKeys("아이디입력");
+            driver.findElement(By.xpath("//*[@id=\"pw\"]")).sendKeys("비번입력");
+            WebElement completeLogin = driver.findElement(By.xpath("//*[@id=\"log.login\"]"));
+            completeLogin.click();
+//
+//            WebElement after = driver.findElement(By.xpath("/html/body/div/div/div[1]/div[1]/div/div[1]/a[1]"));
+//            System.out.println(after.getText());
+
 
         } catch (Exception e) {
 
             e.printStackTrace();
 
-        } finally {
-
-            driver.close();
         }
 
     }
+
 }

@@ -18,6 +18,8 @@ public class JsoupExam {
 
             System.out.println("[Attribute 탐색]");
 
+//            Element test = html.get
+
             Elements fileblocks = html.getElementsByClass("group_nav");
             for(Element fileblock : fileblocks)  {
                 Elements files = fileblock.getElementsByTag("a");
